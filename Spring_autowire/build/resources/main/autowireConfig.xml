@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="faculty1" class="iuh.edu.vn.xmlBased.autowire.Faculty">
+        <property name="f_name" value="KHoa CNTT"/>
+    </bean>
+
+    <bean id="faculty" class="iuh.edu.vn.xmlBased.autowire.Faculty">
+        <property name="f_name" value="KHoa KT"/>
+    </bean>
+
+    <bean primary="true" id="dept1" class="iuh.edu.vn.xmlBased.autowire.Department" autowire="constructor">
+        <qualifier value="faculty"/>
+        <constructor-arg name="dept_name" value="SE(byName)"/>
+    </bean>
+
+    <!--    <bean id="dept2" class="iuh.edu.vn.xmlBased.autowire.Department" autowire="byType">-->
+    <!--        <property name="dept_name" value="SE(byType)"/>-->
+    <!--    </bean>-->
+</beans>

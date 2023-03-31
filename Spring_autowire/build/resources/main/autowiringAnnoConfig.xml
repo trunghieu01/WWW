@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="group" class="iuh.edu.vn.javaBased.autowire.Group">
+        <property name="groupName" value="Administrator"/>
+    </bean>
+
+    <bean id="us1" class="iuh.edu.vn.javaBased.autowire.User">
+        <property name="username" value="teo"/>
+        <property name="password" value="s3cr3t"/>
+        <property name="group" ref="group"/>
+    </bean>
+</beans>
