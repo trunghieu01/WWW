@@ -7,8 +7,8 @@ public class ConnectDB {
 
     public ConnectDB() {
         try {
-            Class.forName("com.mysql.jdbc.Driver");
-            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/mvcdb", "root", "admin");
+            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+            con = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;DatabaseName=mvc;encrypt=true;trustServerCertificate=true;", "sa", "123456");
             System.out.println("Connect successfully!");
         } catch (Exception e) {
             System.out.println("Connect failure!");
@@ -22,5 +22,6 @@ public class ConnectDB {
                 + "SET password = " + "'"+acc.getPassword()+"'"
                 + "WHERE firstName = " + "'"+acc.getFirstName()+"'";
         stmt.executeUpdate(sqlUpdate);
+        System.out.println(stmt.executeUpdate(sqlUpdate));
     }
 }
